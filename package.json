@@ -1,0 +1,25 @@
+{
+  "name": "chatbot",
+  "version": "1.0.0",
+  "description": "washington healthcare chatbot",
+  "license": "ISC",
+  "author": "Tekalign Getachew",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "@google/generative-ai": "^0.24.1",
+    "axios": "^1.11.0",
+    "cookie-parser": "^1.4.7",
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.1",
+    "express": "^5.1.0",
+    "natural": "^8.1.0",
+    "node-nlp": "^5.0.0-alpha.5",
+    "nodemon": "^3.1.10",
+    "openai": "^5.11.0",
+    "uuid": "^11.1.0"
+  }
+}
