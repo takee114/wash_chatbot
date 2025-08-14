@@ -130,33 +130,79 @@ const setupNLP = async () => {
     manager.addNamedEntityText("specialty", spec, ["en"], [spec])
   );
 
-  // Intents
-  manager.addDocument("en", "when is %doctor% available", "doctor.availability");
-  manager.addDocument("en", "availability of %doctor%", "doctor.availability");
-  manager.addDocument("en", "what day can I visit %doctor%", "doctor.availability");
-  manager.addDocument("en", "doctor working on %day%", "doctor.by_day");
-  manager.addDocument("en", "which doctors are available on %day%", "doctor.by_day");
-  manager.addDocument("en", "show doctors for %specialty%", "doctor.by_specialty");
-  manager.addDocument("en", "who is the %specialty%", "doctor.by_specialty");
-  manager.addDocument("en", "i want to see a %specialty%", "doctor.by_specialty");
+  // =====================
+// Doctor Availability / Schedule (merged)
+// =====================
+manager.addDocument("en", "when is %doctor% available", "doctor.availability");
+manager.addDocument("en", "availability of %doctor%", "doctor.availability");
+manager.addDocument("en", "what day can I visit %doctor%", "doctor.availability");
+manager.addDocument("en", "what is %doctor%'s schedule", "doctor.availability");
+manager.addDocument("en", "schedule for %doctor%", "doctor.availability");
+manager.addDocument("en", "when can I book %doctor%", "doctor.availability");
+manager.addDocument("en", "what times does %doctor% work", "doctor.availability");
 
-  manager.addDocument("en", "which branches do you have", "list.branches");
-  manager.addDocument("en", "what branches do you have", "list.branches");
+// =====================
+// Doctors by Day
+// =====================
+manager.addDocument("en", "doctor working on %day%", "doctor.by_day");
+manager.addDocument("en", "which doctors are available on %day%", "doctor.by_day");
+manager.addDocument("en", "who is on duty %day%", "doctor.by_day");
+manager.addDocument("en", "doctor schedule for %day%", "doctor.by_day");
+manager.addDocument("en", "doctors working %day%", "doctor.by_day");
 
-  manager.addDocument("en", "services in rwanda", "services.rwanda");
-  manager.addDocument("en", "departments in bulbula branch", "services.bulbula");
+// =====================
+// Doctors by Specialty
+// =====================
+manager.addDocument("en", "show doctors for %specialty%", "doctor.by_specialty");
+manager.addDocument("en", "who is the %specialty%", "doctor.by_specialty");
+manager.addDocument("en", "i want to see a %specialty%", "doctor.by_specialty");
+manager.addDocument("en", "do you have a %specialty%", "doctor.by_specialty");
+manager.addDocument("en", "list %specialty% doctors", "doctor.by_specialty");
+manager.addDocument("en", "which %specialty% is available", "doctor.by_specialty");
+manager.addDocument("en", "who is the best %specialty%", "doctor.by_specialty");
 
-  manager.addDocument("en", "list doctors", "list.doctors");
+// =====================
+// Branch List
+// =====================
+manager.addDocument("en", "which branches do you have", "list.branches");
+manager.addDocument("en", "what branches do you have", "list.branches");
+manager.addDocument("en", "list all branches", "list.branches");
+manager.addDocument("en", "branches available", "list.branches");
 
-  manager.addDocument("en", "emergency number", "emergency.contact");
-  manager.addDocument("en", "how do I contact in emergency", "emergency.contact");
+// =====================
+// Services by Branch
+// =====================
+manager.addDocument("en", "services in rwanda", "services.rwanda");
+manager.addDocument("en", "departments in bulbula branch", "services.bulbula");
+manager.addDocument("en", "what services are in rwanda", "services.rwanda");
+manager.addDocument("en", "what departments are in bulbula", "services.bulbula");
+manager.addDocument("en", "rwanda branch services", "services.rwanda");
+manager.addDocument("en", "bulbula branch departments", "services.bulbula");
 
-  // Location intent
-  manager.addDocument("en", "where is %branch%", "branch.location");
-  manager.addDocument("en", "location of %branch%", "branch.location");
-  manager.addDocument("en", "how can I find %branch%", "branch.location");
-  manager.addDocument("en", "address of %branch%", "branch.location");
-  manager.addDocument("en", "branch %branch% location", "branch.location");
+// =====================
+// Doctor List
+// =====================
+manager.addDocument("en", "list doctors", "list.doctors");
+manager.addDocument("en", "show all doctors", "list.doctors");
+manager.addDocument("en", "give me all doctors", "list.doctors");
+
+// =====================
+// Emergency Contact
+// =====================
+manager.addDocument("en", "emergency number", "emergency.contact");
+manager.addDocument("en", "how do I contact in emergency", "emergency.contact");
+manager.addDocument("en", "urgent care number", "emergency.contact");
+manager.addDocument("en", "what is your emergency contact", "emergency.contact");
+
+// =====================
+// Branch Location
+// =====================
+manager.addDocument("en", "where is %branch%", "branch.location");
+manager.addDocument("en", "location of %branch%", "branch.location");
+manager.addDocument("en", "how can I find %branch%", "branch.location");
+manager.addDocument("en", "address of %branch%", "branch.location");
+manager.addDocument("en", "branch %branch% location", "branch.location");
+manager.addDocument("en", "where can I find %branch%", "branch.location");
 
   await manager.train();
   await manager.save();
