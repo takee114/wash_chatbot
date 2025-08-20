@@ -319,7 +319,7 @@ const correctedQuestion = question
     } else if (memory.doctor) {
       doctorNames = [memory.doctor];
     }
-    if (doctorNames.length === 0) return res.json({ answer: "Please provide a doctor's name." });
+    if (doctorNames.length === 0) return res.json({ answer: "Please provide a doctor's full name." });
 
     const answers = [];
     for (const name of doctorNames) {
